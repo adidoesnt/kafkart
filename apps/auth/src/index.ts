@@ -1,7 +1,8 @@
 import { Elysia } from "elysia";
-import { CustomError } from "@auth/types/error";
-import { Status } from "@auth/types/status";
-import { PORT } from "@auth/constants";
+import { CustomError } from "types/error";
+import { Status } from "@defs/status";
+import { PORT } from "@constants";
+import { logger } from "utils/lib/logger";
 
 const app = new Elysia().get("/", () => "Hello Elysia").listen(PORT);
 
@@ -15,10 +16,10 @@ try {
 		);
 	}
 
-	console.log(
+	logger.info(
 		`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
 	);
 } catch (error) {
-	console.error(error);
+	logger.error("Error starting server", error);
 	process.exit(1);
 }
