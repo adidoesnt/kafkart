@@ -39,3 +39,9 @@ body {
     color: theme("colors.primary.900");
   }
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
