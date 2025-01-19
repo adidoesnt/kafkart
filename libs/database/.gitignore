@@ -175,4 +175,4 @@ dist
 .DS_Store
 
 # Drizzle
-drizzle/dev
+drizzle/**/dev
