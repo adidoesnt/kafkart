@@ -1,11 +1,11 @@
 import { Elysia } from "elysia";
-import { CustomError } from "types/error";
-import { Status } from "@defs/status";
+import { CustomError, Status } from "utils/lib/types";
 import { PORT } from "@constants";
 import { logger } from "utils/lib/logger";
 import { checkConnection } from "database/lib/database";
+import { router } from "components/router";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(PORT);
+const app = new Elysia().use(router).listen(PORT);
 
 try {
 	const { hostname, port } = app?.server ?? {};

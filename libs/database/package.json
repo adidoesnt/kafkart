@@ -6,7 +6,9 @@
     "build:dev": "drizzle-kit generate  --config drizzle.dev.config.ts",
     "build:prod": "drizzle-kit generate  --config drizzle.prod.config.ts",
     "migrate:dev": "drizzle-kit migrate --config drizzle.dev.config.ts",
-    "migrate:prod": "drizzle-kit migrate --config drizzle.prod.config.ts"
+    "migrate:prod": "drizzle-kit migrate --config drizzle.prod.config.ts",
+    "push:dev": "drizzle-kit push --config drizzle.dev.config.ts",
+    "push:prod": "drizzle-kit push --config drizzle.prod.config.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",

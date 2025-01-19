@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { DB_URL } from "@constants";
 import { logger } from "utils/lib/logger";
 
-const db = drizzle(DB_URL);
+export const db = drizzle(DB_URL);
 
 export const checkConnection = async () => {
 	try {
