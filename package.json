@@ -1,0 +1,17 @@
+{
+	"name": "kafkart",
+	"version": "1.0.0",
+	"description": "A Bun, React and Kafka-based mock e-commerce application",
+	"private": true,
+	"packageManager": "bun@1.1.45",
+	"workspaces": [
+		"apps/*",
+		"libs/*"
+	],
+	"scripts": {
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+	},
+	"devDependencies": {
+		"prettier": "^3.4.2"
+	}
+}
