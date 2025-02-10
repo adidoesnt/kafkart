@@ -12,12 +12,39 @@ export const signup = async (attributes: CreateUserSchema) => {
 		const user = await userRepository.createUser({ passwordHash, ...rest });
 
 		logger.info("User created", { user });
-        return user;
+		return user;
 	} catch (error) {
 		logger.error("Error creating user", error);
 
 		throw new CustomError(
 			"Error creating user",
+			Status.INTERNAL_SERVER_ERROR,
+		);
+	}
+};
+
+export const login = async (username: string, password: string) => {
+	try {
+		const user = await userRepository.getUserByUsername(username);
+
+		if (!user) {
+			throw new CustomError("User not found", Status.UNAUTHORIZED);
+		}
+
+		const isValidPassword = await Bun.password.verify(
+			password,
+			user.passwordHash,
+		);
+
+		if (!isValidPassword)
+			throw new CustomError("Invalid credentials", Status.UNAUTHORIZED);
+
+		return user;
+	} catch (error) {
+		logger.error("Error logging in user", error);
+
+		throw new CustomError(
+			"Error logging in user",
 			Status.INTERNAL_SERVER_ERROR,
 		);
 	}
