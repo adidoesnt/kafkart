@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { NODE_ENV } from "../constants";
+import { NODE_ENV } from "@/utils/constants";
 
 enum LogLevel {
 	INFO = "INFO",

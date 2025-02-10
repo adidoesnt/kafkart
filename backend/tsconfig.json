@@ -24,10 +24,9 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
 
-    "baseUrl": "./lib",
+    "baseUrl": ".",
     "paths": {
-      "@constants": ["./constants"],
-      "@database/*": ["./database/*"]
-    }
+      "@/*": ["src/*"],
+    },
   }
 }
