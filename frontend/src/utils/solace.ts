@@ -7,6 +7,7 @@ import {
 import {
 	SOLACE_HOST,
 	SOLACE_PASSWORD,
+	SOLACE_TOPIC,
 	SOLACE_USERNAME,
 	SOLACE_VPN_NAME,
 } from "@/utils/constants";
@@ -48,7 +49,7 @@ export const publishProductView = async (userId: number, productId: number) => {
 		const body = { userId, productId, timestamp: Date.now() };
 
 		message.setDestination(
-			SolclientFactory.createTopicDestination("product/views"),
+			SolclientFactory.createTopicDestination(SOLACE_TOPIC),
 		);
 		message.setBinaryAttachment(JSON.stringify(body));
 

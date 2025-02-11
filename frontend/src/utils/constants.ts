@@ -3,6 +3,7 @@ export const {
 	PRODUCT_API_BASE_URL = "http://localhost:3000/products",
 	SOLACE_HOST = "ws://localhost:8008",
 	SOLACE_VPN_NAME = "default",
-	SOLACE_USERNAME = "admin",
+	SOLACE_USERNAME = "frontend_user",
 	SOLACE_PASSWORD = "password",
+	SOLACE_TOPIC = "product/views",
 } = import.meta.env;
