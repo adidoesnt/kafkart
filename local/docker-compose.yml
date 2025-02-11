@@ -1,5 +1,5 @@
 services:
-  primary:
+  solace:
     container_name: pubSubStandardSingleNode
     image: solace/solace-pubsub-standard:latest
     volumes:
@@ -54,6 +54,14 @@ services:
       - username_admin_globalaccesslevel=admin
       - username_admin_password=password
       - system_scaling_maxconnectioncount=100
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb/data:/data/db
+    restart: always
 
 volumes:
   storage-group:
