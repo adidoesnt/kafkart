@@ -22,8 +22,6 @@ export const connectToSolace = () => {
 			vpnName: SOLACE_VPN_NAME,
 		};
 
-        console.log({ sessionProps });
-
 		session = SolclientFactory.init().createSession(sessionProps);
 
 		session.on(SessionEventCode.UP_NOTICE, () => {
