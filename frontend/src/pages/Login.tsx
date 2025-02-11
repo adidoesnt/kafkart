@@ -44,7 +44,7 @@ function Login() {
 	return (
 		<div className="text-gray-200 bg-gray-900 flex w-full h-full flex-col items-center justify-center p-8 rounded-lg gap-8">
 			<div className="flex flex-col w-full justify-center items-center gap-2">
-				<h1 className="text-2xl font-bold">KafkaRT</h1>
+				<h1 className="text-2xl font-bold">KafKaRT</h1>
 				<p className="text-sm">
 					A Solace-based mock e-commerce application.
 				</p>
