@@ -5,6 +5,7 @@ import {
 	ReactNode,
 	useCallback,
 	useContext,
+	useMemo,
 	useState,
 } from "react";
 
@@ -20,6 +21,8 @@ type AuthContextType = {
 	user: User | null;
 	login: (username: string, password: string) => Promise<void>;
 	logout: () => void;
+	isAuthenticated: boolean;
+	isAdmin: boolean;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -35,6 +38,8 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
 	const [user, setUser] = useState<User | null>(null);
+	const isAuthenticated = useMemo(() => !!user, [user]);
+	const isAdmin = useMemo(() => user?.admin ?? false, [user]);
 
 	const login = useCallback(
 		async (username: string, password: string) => {
@@ -60,6 +65,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 		user,
 		login,
 		logout,
+		isAuthenticated,
+		isAdmin,
 	};
 
 	return (

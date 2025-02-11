@@ -20,11 +20,11 @@ const UnauthenticatedRoutes = () => {
 };
 
 export const Router = () => {
-	const { user } = useAuth();
+	const { isAuthenticated } = useAuth();
 
 	return (
 		<BrowserRouter>
-			{user ? <AuthenticatedRoutes /> : <UnauthenticatedRoutes />}
+			{isAuthenticated ? <AuthenticatedRoutes /> : <UnauthenticatedRoutes />}
 		</BrowserRouter>
 	);
 };
