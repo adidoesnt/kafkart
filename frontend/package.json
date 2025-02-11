@@ -23,6 +23,7 @@
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.54.2",
 		"react-router": "^7.1.5",
+		"solclientjs": "^10.17.1",
 		"tailwind-merge": "^3.0.1",
 		"tailwindcss-animate": "^1.0.7",
 		"zod": "^3.24.1"
