@@ -9,7 +9,8 @@
 		"frontend"
 	],
 	"scripts": {
-		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+		"local": "docker-compose -f local/docker-compose.yml up -d"
 	},
 	"devDependencies": {
 		"prettier": "^3.4.2",
