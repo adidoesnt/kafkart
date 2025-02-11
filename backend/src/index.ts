@@ -9,11 +9,11 @@ import userRouter from "./routes/user";
 const app = express();
 
 app.use(json());
-app.use(cors({
-	origin: [
-		FRONTEND_URL,
-	]
-}));
+app.use(
+	cors({
+		origin: [FRONTEND_URL],
+	}),
+);
 app.use(healthRouter);
 app.use("/user", userRouter);
 

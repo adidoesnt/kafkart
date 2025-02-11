@@ -1,1 +1,2 @@
-export const { USER_API_BASE_URL = "http://localhost:3000/user" } = import.meta.env;
+export const { USER_API_BASE_URL = "http://localhost:3000/user" } = import.meta
+	.env;
