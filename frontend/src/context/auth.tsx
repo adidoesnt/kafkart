@@ -5,6 +5,7 @@ import {
 	ReactNode,
 	useCallback,
 	useContext,
+	useEffect,
 	useMemo,
 	useState,
 } from "react";
@@ -16,6 +17,14 @@ type User = {
 	profileImageUrl: string;
 	admin: boolean;
 };
+
+// const mockUser: User = {
+// 	id: 1,
+// 	username: "admin",
+// 	email: "admin@example.com",
+// 	profileImageUrl: "https://kafkart-bucket.s3.eu-west-2.amazonaws.com/user-images/user1.jpg",
+// 	admin: true,
+// };
 
 type AuthContextType = {
 	user: User | null;
@@ -33,6 +42,7 @@ export const useAuth = () => {
 	if (!context) {
 		throw new Error("useAuth must be used within an AuthProvider");
 	}
+
 	return context;
 };
 
@@ -40,6 +50,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 	const [user, setUser] = useState<User | null>(null);
 	const isAuthenticated = useMemo(() => !!user, [user]);
 	const isAdmin = useMemo(() => user?.admin ?? false, [user]);
+
+	useEffect(() => {
+		console.log("user", user);
+	}, [user]);
 
 	const login = useCallback(
 		async (username: string, password: string) => {

@@ -1,12 +1,14 @@
-import Home from "@/App";
+import Home from "@/pages/Home";
 import { useAuth } from "@/context/auth";
-import Login from "@/Login";
+import Login from "@/pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router";
+import Products from "@/pages/Products";
 
 const AuthenticatedRoutes = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />
+			<Route path="/products" element={<Products />} />
 		</Routes>
 	);
 };
@@ -24,7 +26,11 @@ export const Router = () => {
 
 	return (
 		<BrowserRouter>
-			{isAuthenticated ? <AuthenticatedRoutes /> : <UnauthenticatedRoutes />}
+			{isAuthenticated ? (
+				<AuthenticatedRoutes />
+			) : (
+				<UnauthenticatedRoutes />
+			)}
 		</BrowserRouter>
 	);
 };

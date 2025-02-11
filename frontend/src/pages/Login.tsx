@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useCallback } from "react";
-import { useAuth } from "./context/auth";
+import { useAuth } from "../context/auth";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -45,7 +45,9 @@ function Login() {
 		<div className="flex w-fit h-fit flex-col items-center justify-center bg-gray-200 p-8 text-black rounded-lg gap-8">
 			<div className="flex flex-col w-full justify-center items-center gap-2">
 				<h1 className="text-2xl font-bold">KafkaRT</h1>
-				<p className="text-sm">A Kafka-based mock e-commerce application.</p>
+				<p className="text-sm">
+					A Kafka-based mock e-commerce application.
+				</p>
 			</div>
 			<Form {...form}>
 				<form
