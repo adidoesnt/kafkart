@@ -5,7 +5,9 @@ import { logger } from "@/utils/logger";
 import { FRONTEND_URL, PORT } from "@/utils/constants";
 import { healthRouter, userRouter, productRouter } from "./routes";
 import { connectToSolace } from "./utils/solace";
+import { connectToMongoDB } from "./utils/mongodb/db";
 
+await connectToMongoDB();
 await connectToSolace();
 
 const app = express();

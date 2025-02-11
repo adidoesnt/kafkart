@@ -22,3 +22,5 @@ export const {
 export const SOLACE_REQUEST_TIMEOUT = Number(
 	process.env.SOLACE_REQUEST_TIMEOUT ?? "10000",
 );
+
+export const MONGODB_URI = process.env.MONGODB_URI ?? "mongodb://localhost:27017";
