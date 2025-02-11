@@ -42,11 +42,11 @@ function Login() {
 	);
 
 	return (
-		<div className="flex w-fit h-fit flex-col items-center justify-center bg-gray-200 p-8 text-black rounded-lg gap-8">
+		<div className="text-gray-200 bg-gray-900 flex w-full h-full flex-col items-center justify-center p-8 rounded-lg gap-8">
 			<div className="flex flex-col w-full justify-center items-center gap-2">
 				<h1 className="text-2xl font-bold">KafkaRT</h1>
 				<p className="text-sm">
-					A Kafka-based mock e-commerce application.
+					A Solace-based mock e-commerce application.
 				</p>
 			</div>
 			<Form {...form}>
@@ -96,7 +96,7 @@ function Login() {
 						)}
 					/>
 					<div className="flex w-full justify-center">
-						<Button type="submit">Login</Button>
+						<Button className="bg-gray-200 hover:bg-gray-400 text-gray-900" type="submit">Login</Button>
 					</div>
 				</form>
 			</Form>

@@ -3,8 +3,7 @@ import { json } from "body-parser";
 import cors from "cors";
 import { logger } from "@/utils/logger";
 import { FRONTEND_URL, PORT } from "@/utils/constants";
-import healthRouter from "./routes/health";
-import userRouter from "./routes/user";
+import { healthRouter, userRouter, productRouter } from "./routes";
 
 const app = express();
 
@@ -15,7 +14,8 @@ app.use(
 	}),
 );
 app.use(healthRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
+app.use("/products", productRouter);
 
 app.listen(PORT, () => {
 	logger.info(`Server running on port ${PORT}`);
