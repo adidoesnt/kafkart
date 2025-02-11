@@ -1,0 +1,42 @@
+{
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"targetDefaults": {
+		"start": {
+			"dependsOn": ["^start"]
+		},
+		"dev": {
+			"dependsOn": ["^dev"]
+		},
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["{projectRoot}/dist"],
+			"cache": true
+		},
+		"lint": {
+			"cache": true
+		}
+	},
+	"defaultBase": "main",
+	"plugins": [
+		{
+			"plugin": "@nx/eslint/plugin",
+			"options": {
+				"targetName": "eslint:lint"
+			}
+		},
+		{
+			"plugin": "@nx/vite/plugin",
+			"options": {
+				"buildTargetName": "vite:build",
+				"testTargetName": "test",
+				"serveTargetName": "serve",
+				"devTargetName": "vite:dev",
+				"previewTargetName": "vite:preview",
+				"serveStaticTargetName": "serve-static",
+				"typecheckTargetName": "typecheck",
+				"buildDepsTargetName": "build-deps",
+				"watchDepsTargetName": "watch-deps"
+			}
+		}
+	]
+}

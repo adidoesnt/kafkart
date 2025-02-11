@@ -10,10 +10,21 @@
 	],
 	"scripts": {
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-		"local": "docker-compose -f local/docker-compose.yml up -d"
+		"local": "docker-compose -f local/docker-compose.yml up -d",
+    "start": "bun run local && nx run-many --target=start --all",
+    "dev": "bun run local && nx run-many --target=dev --all"
 	},
 	"devDependencies": {
+		"@nx/eslint": "20.4.2",
+		"@nx/vite": "20.4.2",
+		"@nx/web": "20.4.2",
+		"@vitest/ui": "^1.3.1",
+		"eslint": "~8.57.0",
+		"nx": "20.4.2",
 		"prettier": "^3.4.2",
-		"typescript": "^5.7.3"
-	}
+		"typescript": "^5.7.3",
+		"vite": "^5.0.0",
+		"vitest": "^1.3.1"
+	},
+	"dependencies": {}
 }
