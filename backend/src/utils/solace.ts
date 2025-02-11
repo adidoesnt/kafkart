@@ -5,9 +5,10 @@ import {
 	SOLACE_USERNAME,
 	SOLACE_VPN_NAME,
 	SOLACE_REQUEST_TIMEOUT,
-    SOLACE_TOPIC,
+	SOLACE_TOPIC,
 } from "./constants";
 import { logger } from "./logger";
+import { productService, userService } from "@/services";
 
 let session: Session | null = null;
 
@@ -27,8 +28,7 @@ export const connectToSolace = () => {
 		session.on(SessionEventCode.UP_NOTICE, () => {
 			logger.info("Connected to Solace!");
 
-			const topic =
-				SolclientFactory.createTopicDestination(SOLACE_TOPIC);
+			const topic = SolclientFactory.createTopicDestination(SOLACE_TOPIC);
 
 			session!.subscribe(
 				topic,
@@ -40,11 +40,17 @@ export const connectToSolace = () => {
 			resolve(session);
 		});
 
-        session.on(SessionEventCode.MESSAGE, (message) => {
+		session.on(SessionEventCode.MESSAGE, async (message) => {
 			const data = message.getBinaryAttachment();
-            const parsedData = JSON.parse(data as string);
+			const parsedData = JSON.parse(data as string);
 
 			logger.info("Received product view:", { data: parsedData });
+
+			await productService.addProductView(parsedData.productId);
+			await userService.addProductView(
+				parsedData.userId,
+				parsedData.productId,
+			);
 		});
 
 		session.on(SessionEventCode.CONNECT_FAILED_ERROR, (err) => {
