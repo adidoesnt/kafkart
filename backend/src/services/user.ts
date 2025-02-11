@@ -63,11 +63,15 @@ export const getRecentProductViews = async (userId: number) => {
 			return [];
 		}
 
-		return user.productViews.sort((a, b) => {
-			const timestampA = Number(a.timestamp);
-			const timestampB = Number(b.timestamp);
-			return timestampB - timestampA;
-		});
+		return user.productViews
+			.sort((a, b) => {
+				const timestampA = Number(a.timestamp);
+				const timestampB = Number(b.timestamp);
+				return timestampB - timestampA;
+			})
+			.map((view) =>
+				mockDb.products.find((p) => p.id === view.productId),
+			);
 	} catch (error) {
 		console.error("Error getting recent product views:", error);
 		return [];

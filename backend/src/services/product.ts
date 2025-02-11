@@ -7,12 +7,14 @@ export const getProducts = async () => {
 
 export const getFeaturedProducts = async () => {
 	try {
-        const products = await Product.find().sort({ views: -1 }).limit(3);
-        return products;
-    } catch (error) {
-        console.error("Error fetching featured products:", error);
-        return [];
-    }
+		const products = await Product.find().sort({ views: -1 }).limit(3);
+		return products.map((product) =>
+			mockDb.products.find((p) => p.id === product.productId),
+		);
+	} catch (error) {
+		console.error("Error fetching featured products:", error);
+		return [];
+	}
 };
 
 export const addProductView = async (productId: number) => {
