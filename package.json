@@ -5,8 +5,8 @@
 	"private": true,
 	"packageManager": "bun@1.1.45",
 	"workspaces": [
-		"apps/*",
-		"libs/*"
+		"backend",
+		"frontend"
 	],
 	"scripts": {
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
