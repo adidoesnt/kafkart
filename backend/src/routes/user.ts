@@ -25,3 +25,5 @@ userRouter.post("/login", async (req, res) => {
 			.send(error.message ?? "Internal server error");
 	}
 });
+
+export default userRouter;
