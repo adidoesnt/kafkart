@@ -71,7 +71,7 @@ export const getRecentProductViews = async (userId: number) => {
 			})
 			.map((view) =>
 				mockDb.products.find((p) => p.id === view.productId),
-			);
+			).slice(0, 3);
 	} catch (error) {
 		console.error("Error getting recent product views:", error);
 		return [];
